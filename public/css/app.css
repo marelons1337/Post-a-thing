@@ -10002,3 +10002,8 @@ h3 {
     border-color: #dee2e6;
   }
 }
+footer {
+  background: #718096;
+  padding: 20px;
+  text-align: center;
+}

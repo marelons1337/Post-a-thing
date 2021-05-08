@@ -39,8 +39,26 @@
             @endif
                 <div class="content">
                     <h1>Post-A-Thing</h1><br />
-                    <h2 style="color:burlywood"><a href="/create">Click here to add a new thing</a></h2><br>
+                    <h2 style="color:burlywood"><a href="{{ route('comments.create') }}">Click here to add a new thing</a></h2><br>
                     <p style="color:red">{{ session('mssg') }}</p>
+                    <form action="/" method="POST">
+                        @csrf
+                        <label for="comment">Your thing:</label>
+                        <input type="text" name="comment" id="comment">
+                        <br>
+                        <label for="urgency">How urgent is it?</label>
+                        <select name="urgency" id="urgency">
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select><br>
+                        How do you want to be contacted?
+                        <fieldset>
+                            <input type="checkbox" name="contact[]" value="email">Email
+                            <input type="checkbox" name="contact[]" value="phone">Phone
+                        </fieldset>
+                        <input type="submit" value="Post  It">
+                    </form>
                     <h2>Posts</h2>
                     @foreach($comments as $comment)
                         <h3><a href="/{{ $comment->username }}">{{ $comment->username}}</a> {{ $comment->created_at }} </h3>

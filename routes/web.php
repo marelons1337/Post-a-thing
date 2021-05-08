@@ -22,13 +22,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', [UserController::class, 'index']);
+Route::get('/', [UserController::class, 'index'])->name('comments.index');
 
-Route::post('/', [UserController::class, 'store']);
+Route::post('/', [UserController::class, 'store'])->name('comments.store');
 
-Route::get('//create', [UserController::class, 'create']);
+Route::get('//create', [UserController::class, 'create'])->name('comments.create')->middleware('auth');
 
-Route::get('//{user}', [UserController::class, 'show']);
+Route::get('//{user}', [UserController::class, 'show'])->name('comments.show')->middleware('auth');
 
-Route::delete('/{id}', [UserController::class, 'destroy']);
+Route::delete('/{id}', [UserController::class, 'destroy'])->name('comments.destroy')->middleware('auth');
 

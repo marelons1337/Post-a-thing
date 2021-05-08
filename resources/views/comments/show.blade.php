@@ -7,7 +7,7 @@
         <p>Email: {{ $user->email }}</p>
         <p>Joined: {{ $user->created_at }} </p>
         <a href="/" class="back"><- Go back</a>
-        <form action="/{{ $user->id }}" method="POST">
+        <form action="{{ route('comments.destroy', $user->id) }}" method="POST">
             @csrf
             @method('DELETE')
             <button>Delete user</button>
