@@ -72,12 +72,7 @@
                         <h3 class="comment-header"><a href="/{{ $comment->id }}">{{ $comment->username}} {{ $comment->created_at }}</a> </h3>
                         <p class="small">Urgency: {{ $comment->urgency }}</p>
                         <p> {{ $comment->comment }} </p>
-                        <p>Contact me via </p>
-                        <ul>
-                            @foreach ($comment->contact_methods as $contact)
-                                <li>{{ $contact }}</li>
-                            @endforeach
-                        </ul>
+                        <p class="small">Contact me via @foreach ($comment->contact_methods as $contact) {{ $contact }}@endforeach</p> 
                     @endforeach
                 </div>
              </div>

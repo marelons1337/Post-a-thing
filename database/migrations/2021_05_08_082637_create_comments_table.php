@@ -20,6 +20,7 @@ class CreateCommentsTable extends Migration
             $table->string('comment');
             $table->string('urgency');
             $table->json('contact_methods');
+            $table->string('user_id');
         });
     }
 
