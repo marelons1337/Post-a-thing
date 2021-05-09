@@ -50,24 +50,46 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="/" method="POST">
-                        @csrf
-                        <label for="comment">Your thing:</label><br>
-                        <textarea type="text" name="comment" id="comment" required></textarea>
-                        <br>
-                        <label for="urgency">How urgent is it?</label>
-                        <select name="urgency" id="urgency" required>
-                            <option value="high">High</option>
-                            <option value="medium">Medium</option>
-                            <option value="low">Low</option>
-                        </select><br>
-                        How do you want to be contacted?
-                        <fieldset required>
-                            <input type="checkbox" name="contact[]" value="email">Email
-                            <input type="checkbox" name="contact[]" value="phone">Phone
-                        </fieldset>
-                        <input type="submit" value="Post It">
-                    </form>
+                    @if (Auth::check())
+                        <form action="/" method="POST">
+                            @csrf
+                            <label for="comment">Your thing:</label><br>
+                            <textarea type="text" name="comment" id="comment" required></textarea>
+                            <br>
+                            <label for="urgency">How urgent is it?</label>
+                            <select name="urgency" id="urgency" required>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select><br>
+                            How do you want to be contacted?
+                            <fieldset required>
+                                <input type="checkbox" name="contact[]" value="email">Email
+                                <input type="checkbox" name="contact[]" value="phone">Phone
+                            </fieldset>
+                            <input type="submit" value="Post It">
+                        </form>
+                    @else
+                        <form action="/" method="POST" disabled>
+                            @csrf
+                            <label for="comment">Your thing:</label><br>
+                            <textarea type="text" name="comment" id="comment" required disabled></textarea>
+                            <br>
+                            <label for="urgency">How urgent is it?</label>
+                            <select name="urgency" id="urgency" required disabled>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select><br>
+                            How do you want to be contacted?
+                            <fieldset required disabled>
+                                <input type="checkbox" name="contact[]" value="email">Email
+                                <input type="checkbox" name="contact[]" value="phone">Phone
+                            </fieldset>
+                            <input type="submit" value="Post It" disabled>
+                            Please log in to post it.
+                        </form>
+                    @endif
                     @foreach($comments as $comment)
                         <h3 class="comment-header"><a href="/{{ $comment->id }}">{{ $comment->username}} {{ $comment->created_at }}</a> </h3>
                         <p class="small">Urgency: {{ $comment->urgency }}</p>
