@@ -10007,3 +10007,8 @@ footer {
   padding: 20px;
   text-align: center;
 }
+
+#comment {
+  height: 200px;
+  border: 1px #718096 solid;
+}

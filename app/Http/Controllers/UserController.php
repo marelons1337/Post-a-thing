@@ -23,17 +23,21 @@ class UserController extends Controller
         return view('comments/show', ['user' => $user]);
     }
 
-    public function create () {
-        return view('comments/create'); 
-    }
-
     public function store() {
+
+
         $comment = new Comment();
          
         $comment->username = "test";
         $comment->comment = request('comment');
         $comment->urgency = request('urgency');
         $comment->contact_methods = request('contact');
+
+        $validated = request()->validate([
+            'comment' => 'required|max:255',
+            'urgency' => 'required',
+            'contact' => 'required'
+        ]);
 
         $comment->save();
 

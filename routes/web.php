@@ -24,9 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/', [UserController::class, 'index'])->name('comments.index');
 
-Route::post('/', [UserController::class, 'store'])->name('comments.store');
-
-Route::get('//create', [UserController::class, 'create'])->name('comments.create')->middleware('auth');
+Route::post('/', [UserController::class, 'store'])->name('comments.store')->middleware('auth');
 
 Route::get('//{user}', [UserController::class, 'show'])->name('comments.show')->middleware('auth');
 

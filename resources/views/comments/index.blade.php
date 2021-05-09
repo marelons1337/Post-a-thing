@@ -39,27 +39,34 @@
             @endif
                 <div class="content">
                     <h1>Post-A-Thing</h1><br />
-                    <h2 style="color:burlywood"><a href="{{ route('comments.create') }}">Click here to add a new thing</a></h2><br>
                     <p style="color:red">{{ session('mssg') }}</p>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form action="/" method="POST">
                         @csrf
-                        <label for="comment">Your thing:</label>
-                        <input type="text" name="comment" id="comment">
+                        <label for="comment">Your thing:</label><br>
+                        <input type="text" name="comment" id="comment" required>
                         <br>
                         <label for="urgency">How urgent is it?</label>
-                        <select name="urgency" id="urgency">
+                        <select name="urgency" id="urgency" required>
                             <option value="high">High</option>
                             <option value="medium">Medium</option>
                             <option value="low">Low</option>
                         </select><br>
                         How do you want to be contacted?
-                        <fieldset>
+                        <fieldset required>
                             <input type="checkbox" name="contact[]" value="email">Email
                             <input type="checkbox" name="contact[]" value="phone">Phone
                         </fieldset>
-                        <input type="submit" value="Post  It">
+                        <input type="submit" value="Post It">
                     </form>
-                    <h2>Posts</h2>
                     @foreach($comments as $comment)
                         <h3><a href="/{{ $comment->username }}">{{ $comment->username}}</a> {{ $comment->created_at }} </h3>
                         <h4>Urgency: {{ $comment->urgency }}</h4>
