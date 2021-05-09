@@ -19,6 +19,7 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+        <link rel="stylesheet" href="css/app.css">
     </head>
     <body class="antialiased">
             <div class="relative flex items-top justify-center min-h-screen bg-gray-900 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
@@ -52,7 +53,7 @@
                     <form action="/" method="POST">
                         @csrf
                         <label for="comment">Your thing:</label><br>
-                        <input type="text" name="comment" id="comment" required>
+                        <textarea type="text" name="comment" id="comment" required></textarea>
                         <br>
                         <label for="urgency">How urgent is it?</label>
                         <select name="urgency" id="urgency" required>
@@ -68,8 +69,8 @@
                         <input type="submit" value="Post It">
                     </form>
                     @foreach($comments as $comment)
-                        <h3><a href="/{{ $comment->username }}">{{ $comment->username}}</a> {{ $comment->created_at }} </h3>
-                        <h4>Urgency: {{ $comment->urgency }}</h4>
+                        <h3 class="comment-header"><a href="/{{ $comment->id }}">{{ $comment->username}} {{ $comment->created_at }}</a> </h3>
+                        <p class="small">Urgency: {{ $comment->urgency }}</p>
                         <p> {{ $comment->comment }} </p>
                         <p>Contact me via </p>
                         <ul>

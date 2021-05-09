@@ -3,14 +3,14 @@
 @section('content')
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
     <div class="content">
-        <h1>Details of user {{ $user->name }}</h1><br />
-        <p>Email: {{ $user->email }}</p>
-        <p>Joined: {{ $user->created_at }} </p>
+        <h1>Comment by {{ $comment->username }}</h1><br />
+        <p class="small">{{ $comment->created_at }}, Urgency {{ $comment->urgency }}</p>
+        <p>{{ $comment->comment }} </p>
         <a href="/" class="back"><- Go back</a>
-        <form action="{{ route('comments.destroy', $user->id) }}" method="POST">
+        <form action="{{ route('comments.destroy', $comment->id) }}" method="POST">
             @csrf
             @method('DELETE')
-            <button>Delete user</button>
+            <button>Delete Comment</button>
         </form>
     </div>
  </div>
