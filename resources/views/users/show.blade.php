@@ -6,6 +6,7 @@
         <h1>Details of user {{ $user->name }} </h1><br />
         <p>ID: {{ $user->id }}</p> 
         <p>Email: {{ $user->email }}</p>
+        <p>Phone: {{ $user->phone }}</p>
         <p>Joined: {{ $user->created_at }} </p>
         <a href="/" class="back"><- Go back</a>
     </div>
