@@ -7,6 +7,19 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.post-content {
+    display: grid;
+    place-items: center;
+}
+h1 {
+    text-align: center;
+    font-size: 120px;
+}
 
 footer {
     background: #718096;
@@ -16,7 +29,7 @@ footer {
 
 #comment {
     border: 1px #718096 solid;
-    width: 100%;
+    width: 50%;
 }
 
 .comment-header {
@@ -26,5 +39,6 @@ a:hover {
     text-decoration: none;
 }
 main {
-    margin: 20px;
+    margin: 40px;
+    width: 800px;
 }

@@ -22,9 +22,8 @@
         <link rel="stylesheet" href="css/app.css">
     </head>
     <body class="antialiased">
-            <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-100 sm:items-center py-4 sm:pt-0">
-                
-                @if (Route::has('login'))
+        <main>
+            @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
@@ -35,21 +34,11 @@
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                         @endif
                     @endauth
-                    
                 </div>
             @endif
-                <div class="content">
-                    <h1>Post-A-Thing</h1><br />
-                    <p style="color:red">{{ session('mssg') }}</p>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+            <div class="main-content">
+                <h1>Post-A-Thing</h1><br />
+                <div class="post-content">
                     @if (Auth::check())
                         <form action="/" method="POST">
                             @csrf
@@ -90,16 +79,22 @@
                             Please log in to post it.
                         </form>
                     @endif
-                    @foreach($comments as $comment)
-                        <h3 class="comment-header"><a href="/{{ $comment->id }}">{{ $comment->username}} {{ $comment->created_at }}</a> </h3>
-                        <p class="small">Urgency: {{ $comment->urgency }}</p>
-                        <p> {{ $comment->comment }} </p>
-                        <p class="small">Contact me via @foreach ($comment->contact_methods as $contact) {{ $contact }}@endforeach</p> 
-                    @endforeach
+                    <p style="color:red">{{ session('mssg') }}</p>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <div id="app">
+                        <front-component></front-component>
+                    </div>
                 </div>
-             </div>
-
-
-           
+            </div>
+        </main>
+        <script src="js/app.js"></script>
     </body>
 </html>
