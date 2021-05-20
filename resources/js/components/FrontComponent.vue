@@ -3,7 +3,7 @@
         <div class="single-post" v-for="comment in comments">    
             <h3 class="comment-header"><a :href="'/' + comment.id">{{ comment.username}} {{ changeTimeToLocale(comment.created_at) }}</a> </h3>
             <p class="small">Urgency: {{ comment.urgency }}</p>
-            <p> {{ comment.comment }} </p>
+            <p class="comment-content"> {{ comment.comment }} </p>
             <p class="small">Contact me via  <span v-for="contact in comment.contact_methods" class="contact-method-single"> {{ contact }}</span></p> 
         </div>
     </div>

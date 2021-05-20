@@ -37456,7 +37456,9 @@ var render = function() {
           _vm._v("Urgency: " + _vm._s(comment.urgency))
         ]),
         _vm._v(" "),
-        _c("p", [_vm._v(" " + _vm._s(comment.comment) + " ")]),
+        _c("p", { staticClass: "comment-content" }, [
+          _vm._v(" " + _vm._s(comment.comment) + " ")
+        ]),
         _vm._v(" "),
         _c(
           "p",

@@ -22,73 +22,75 @@
         <link rel="stylesheet" href="css/app.css">
     </head>
     <body class="antialiased">
-        <main>
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+        @if (Route::has('login'))
+        <div class="login-controls">
+            @auth
+                <a href="{{ url('/home') }}" class="login-home">Home</a>
+            @else
+                <a href="{{ route('login') }}" class="login-login">Log in</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="login-register">Register</a>
+                @endif
+            @endauth
+        </div>
+        @endif
+        <main>
             <div class="main-content">
                 <h1>Post-A-Thing</h1><br />
                 <div class="post-content">
-                    @if (Auth::check())
-                        <form action="/" method="POST">
-                            @csrf
-                            <label for="comment">Your thing:</label><br>
-                            <textarea type="text" name="comment" id="comment" required></textarea>
-                            <br>
-                            <label for="urgency">How urgent is it?</label>
-                            <select name="urgency" id="urgency" required>
-                                <option value="high">High</option>
-                                <option value="medium">Medium</option>
-                                <option value="low">Low</option>
-                            </select><br>
-                            How do you want to be contacted?
-                            <fieldset required>
-                                <input type="checkbox" name="contact[]" value="email">Email
-                                <input type="checkbox" name="contact[]" value="phone">Phone
-                            </fieldset>
-                            <input type="submit" value="Post It">
-                        </form>
-                    @else
-                        <form action="/" method="POST" disabled>
-                            @csrf
-                            <label for="comment">Your thing:</label><br>
-                            <textarea type="text" name="comment" id="comment" required disabled></textarea>
-                            <br>
-                            <label for="urgency">How urgent is it?</label>
-                            <select name="urgency" id="urgency" required disabled>
-                                <option value="high">High</option>
-                                <option value="medium">Medium</option>
-                                <option value="low">Low</option>
-                            </select><br>
-                            How do you want to be contacted?
-                            <fieldset required disabled>
-                                <input type="checkbox" name="contact[]" value="email">Email
-                                <input type="checkbox" name="contact[]" value="phone">Phone
-                            </fieldset>
-                            <input type="submit" value="Post It" disabled>
-                            Please log in to post it.
-                        </form>
-                    @endif
-                    <p style="color:red">{{ session('mssg') }}</p>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    <div class="post-form">
+                        @if (Auth::check())
+                            <form action="/" method="POST">
+                                @csrf
+                                <label class="top-comment-label" for="comment">Your thing:</label><br>
+                                <textarea type="text" name="comment" class="comment" required></textarea>
+                                <br>
+                                <label for="urgency">How urgent is it?</label>
+                                <select name="urgency" class="urgency" required>
+                                    <option value="high">High</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="low">Low</option>
+                                </select><br>
+                                How do you want to be contacted?
+                                <fieldset required>
+                                    <input type="checkbox" name="contact[]" value="email">Email
+                                    <input type="checkbox" name="contact[]" value="phone">Phone
+                                </fieldset>
+                                <input type="submit" value="Post It">
+                            </form>
+                        @else
+                            <form action="/" method="POST" disabled>
+                                @csrf
+                                <label class="top-comment-label" for="comment">Your thing:</label><br>
+                                <textarea type="text" name="comment" class="comment" required></textarea>
+                                <br>
+                                <label for="urgency">How urgent is it?</label>
+                                <select name="urgency" class="urgency" required disabled>
+                                    <option value="high">High</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="low">Low</option>
+                                </select><br>
+                                How do you want to be contacted?
+                                <fieldset required disabled>
+                                    <input type="checkbox" name="contact[]" value="email">Email
+                                    <input type="checkbox" name="contact[]" value="phone">Phone
+                                </fieldset>
+                                <input type="submit" value="Post It" disabled>
+                                <p class="alert alert-danger">Please log in to post it.</p>
+                            </form>
+                        @endif
+                        <p style="color:red">{{ session('mssg') }}</p>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    </div>
                     <div id="app">
                         <front-component></front-component>
                     </div>
