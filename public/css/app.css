@@ -10045,6 +10045,10 @@ p {
   font-weight: 700;
 }
 
+main {
+  padding: 20px;
+}
+
 #app, .main-content {
   width: 100%;
 }
