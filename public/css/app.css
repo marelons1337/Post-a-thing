@@ -10040,12 +10040,21 @@ a:hover {
   text-decoration: none;
 }
 
+p {
+  font-size: 18px;
+  font-weight: 700;
+}
+
 #app, .main-content {
   width: 100%;
 }
 
 .alert-danger {
   margin-top: 10px;
+}
+
+.delete-comment-button {
+  margin-top: 40px;
 }
 
 .login-controls {
@@ -10058,10 +10067,6 @@ a:hover {
   font-size: 25px;
 }
 
-.post-container p {
-  font-size: 18px;
-  font-weight: 700;
-}
 .post-container .comment-content {
   border-top: 1px solid #140d0b;
   border-bottom: 1px solid #140d0b;

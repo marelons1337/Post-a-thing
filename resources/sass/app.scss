@@ -39,11 +39,18 @@ a:hover {
     color: $highlight;
     text-decoration: none;
 }
+p {
+    font-size: 18px;
+    font-weight: 700;
+}
 #app, .main-content{
     width: 100%;
 }
 .alert-danger {
     margin-top: 10px;
+}
+.delete-comment-button {
+    margin-top: 40px;
 }
 .login-controls {
     position: absolute;
@@ -55,10 +62,6 @@ a:hover {
     }
 }
 .post-container {
-    p {
-        font-size: 18px;
-        font-weight: 700;
-    }
     .comment-content {
         border-top: 1px solid $stroke;
         border-bottom: 1px solid $stroke;
