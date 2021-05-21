@@ -60,23 +60,23 @@
                                 <input type="submit" value="Post It">
                             </form>
                         @else
-                            <form action="/" method="POST" disabled>
+                            <form action="/" method="POST" >
                                 @csrf
                                 <label class="top-comment-label" for="comment">Your thing:</label><br>
                                 <textarea type="text" name="comment" class="comment" required></textarea>
                                 <br>
                                 <label for="urgency">How urgent is it?</label>
-                                <select name="urgency" class="urgency" required disabled>
+                                <select name="urgency" class="urgency" required >
                                     <option value="high">High</option>
                                     <option value="medium">Medium</option>
                                     <option value="low">Low</option>
                                 </select><br>
                                 How do you want to be contacted?
-                                <fieldset required disabled>
+                                <fieldset required >
                                     <input type="checkbox" name="contact[]" value="email">Email
                                     <input type="checkbox" name="contact[]" value="phone">Phone
                                 </fieldset>
-                                <input type="submit" value="Post It" disabled>
+                                <input type="submit" value="Post It" >
                                 <p class="alert alert-danger">Please log in to post it.</p>
                             </form>
                         @endif

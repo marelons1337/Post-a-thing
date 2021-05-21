@@ -11,10 +11,12 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
+    width: 100%;
 }
 h1 {
     text-align: center;
-    font-size: 120px;
+    font-size: 60px;
+    padding-top: 50px;
     color: $headline;
 }
 p {
@@ -37,11 +39,11 @@ a:hover {
     color: $highlight;
     text-decoration: none;
 }
-#app{
+#app, .main-content{
     width: 100%;
 }
-.main-content {
-    width: 800px;
+.alert-danger {
+    margin-top: 10px;
 }
 .login-controls {
     position: absolute;
@@ -49,11 +51,12 @@ a:hover {
     right: 10px;
     a {
         padding: 10px;
+        font-size: 25px;
     }
 }
 .post-container {
     p {
-        font-size: 25px;
+        font-size: 18px;
         font-weight: 700;
     }
     .comment-content {
@@ -97,9 +100,15 @@ a:hover {
             }
             .comment {
                 border: 1px #718096 solid;
-                width: clamp(200px, 600px, 800px);
+                width: 100%;
             }
         
         }
+    }
+}
+@media only screen and (min-width: 800px) {
+    h1 {
+        padding-top: 20px;
+        font-size: 120px;
     }
 }
