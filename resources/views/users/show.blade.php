@@ -8,7 +8,7 @@
         <p>Email: {{ $user->email }}</p>
         <p>Phone: {{ $user->phone }}</p>
         <p>Joined: {{ $user->created_at }} </p>
-        <a href="/" class="back"><- Go back</a>
+        <a class="btn" href="/"><- Go back</a>
     </div>
  </div>
 @endsection 

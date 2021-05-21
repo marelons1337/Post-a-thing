@@ -22,9 +22,19 @@ h1 {
 p {
     color: $paragraph;
 }
-button {
-    background-color: $button;
+.btn {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
     color: $button-text;
+    font-size: 20px;
+    background: $button;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    &:hover {
+        background: $highlight;
+        text-decoration: none;
+    }
 }
 
 footer {
@@ -48,6 +58,9 @@ main {
 }
 #app, .main-content{
     width: 100%;
+}
+.delete-comment-button {
+    margin-top: 20px;
 }
 .alert-danger {
     margin-top: 10px;

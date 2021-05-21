@@ -25,12 +25,12 @@
         @if (Route::has('login'))
         <div class="login-controls">
             @auth
-                <a href="{{ url('/home') }}" class="login-home">Home</a>
+                <a class="btn" href="{{ url('/home') }}" class="login-home">Home</a>
             @else
-                <a href="{{ route('login') }}" class="login-login">Log in</a>
+                <a class="btn" href="{{ route('login') }}" class="login-login">Log in</a>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="login-register">Register</a>
+                    <a class="btn" href="{{ route('register') }}" class="login-register">Register</a>
                 @endif
             @endauth
         </div>

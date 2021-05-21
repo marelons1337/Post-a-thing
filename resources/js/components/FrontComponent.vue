@@ -16,7 +16,6 @@
                 comments: []
             }
         },
-
         mounted() {
             axios.get('/api/comments')
             .then(response => this.comments = response.data.data)

@@ -10020,9 +10020,17 @@ p {
   color: #fff3ec;
 }
 
-button {
-  background-color: #ffc0ad;
+.btn {
+  border-radius: 28px;
   color: #271c19;
+  font-size: 20px;
+  background: #ffc0ad;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #e78fb3;
+  text-decoration: none;
 }
 
 footer {
@@ -10051,6 +10059,10 @@ main {
 
 #app, .main-content {
   width: 100%;
+}
+
+.delete-comment-button {
+  margin-top: 20px;
 }
 
 .alert-danger {
