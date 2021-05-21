@@ -24,7 +24,7 @@
                 console.log(error);
             })
         },
-        methods : {
+        methods: {
             changeTimeToLocale(date) {
                 console.log(date);
                 let newDate = new Date(date);
